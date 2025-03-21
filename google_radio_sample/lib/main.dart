@@ -18,8 +18,6 @@ class RadioExampleApp extends StatelessWidget {
   }
 }
 
-enum SingingCharacter { lafayette, jefferson }
-
 class RadioExample extends StatefulWidget {
   const RadioExample({super.key});
 
@@ -28,37 +26,64 @@ class RadioExample extends StatefulWidget {
 }
 
 class _RadioExampleState extends State<RadioExample> {
-  SingingCharacter? _character = SingingCharacter.lafayette;
-
   @override
   Widget build(BuildContext context) {
+    List<List<String>> radioGroups = _getRadioGroupDefinitionsFromUser();
     return Column(
-      children: <Widget>[
-        ListTile(
-          title: const Text('Lafayette'),
-          leading: Radio<SingingCharacter>(
-            value: SingingCharacter.lafayette,
-            groupValue: _character,
-            onChanged: (SingingCharacter? value) {
-              setState(() {
-                _character = value;
-              });
-            },
-          ),
-        ),
-        ListTile(
-          title: const Text('Thomas Jefferson'),
-          leading: Radio<SingingCharacter>(
-            value: SingingCharacter.jefferson,
-            groupValue: _character,
-            onChanged: (SingingCharacter? value) {
-              setState(() {
-                _character = value;
-              });
-            },
-          ),
+      children: [
+        ..._getListTiles(radioGroups),
+
+        TextButton(
+          onPressed: () {
+            print('Submit button pressed.');
+
+            for (int i = 0; i < radioGroups.length; i++) {
+              print(
+                'Selected value for radioGroup $i: ${radioGroupSelectedValueMapping[i]}',
+              );
+            }
+          },
+          child: Text('Submit'),
         ),
       ],
     );
+  }
+
+  Map<int, String> radioGroupSelectedValueMapping = {};
+  List<Widget> _getListTiles(List<List<String>> radioGroups) {
+    List<Widget> radioGroupList = [];
+
+    for (int i = 0; i < radioGroups.length; i++) {
+      List<String> radioGroup = radioGroups[i];
+      List<Widget> radioList = [];
+      for (String radio in radioGroup) {
+        radioList.add(
+          ListTile(
+            title: Text(radio),
+            leading: Radio<String>(
+              value: radio,
+              groupValue: 'group$i', //radioGroup[0],
+              onChanged: (String? value) {
+                setState(() {
+                  radioGroupSelectedValueMapping[i] = value!;
+                  // radioGroup[i] = value!;
+                  print('Selected value for radioGroup $i: $value');
+                });
+              },
+            ),
+          ),
+        );
+      }
+      radioGroupList.add(Divider());
+      radioGroupList.add(Column(children: radioList));
+    }
+
+    return radioGroupList;
+  }
+
+  List<List<String>> _getRadioGroupDefinitionsFromUser() {
+    List<String> fruits = ['Apple', 'Banana', 'Orange'];
+    List<String> colors = ['Red', 'Green', 'Blue', 'Yellow'];
+    return [fruits, colors];
   }
 }
