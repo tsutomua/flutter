@@ -74,14 +74,7 @@ class _RadioExampleState extends State<RadioExample> {
         );
       }
       radioGroupList.add(Divider());
-      // https://api.flutter.dev/flutter/widgets/StatefulBuilder-class.html
-      radioGroupList.add(
-        StatefulBuilder(
-          builder: (BuildContext context, StateSetter setState) {
-            return Column(children: radioListTileList);
-          },
-        ),
-      );
+      radioGroupList.add(Column(children: radioListTileList));
     }
 
     return radioGroupList;
