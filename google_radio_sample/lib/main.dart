@@ -55,18 +55,17 @@ class _RadioExampleState extends State<RadioExample> {
 
     for (int i = 0; i < radioGroups.length; i++) {
       List<String> radioGroup = radioGroups[i];
-      List<Widget> radioList = [];
+      List<Widget> radioListTileList = [];
       for (String radio in radioGroup) {
-        radioList.add(
+        radioListTileList.add(
           ListTile(
             title: Text(radio),
             leading: Radio<String>(
               value: radio,
-              groupValue: 'group$i', //radioGroup[0],
+              groupValue: radioGroupSelectedValueMapping[i],
               onChanged: (String? value) {
                 setState(() {
                   radioGroupSelectedValueMapping[i] = value!;
-                  // radioGroup[i] = value!;
                   print('Selected value for radioGroup $i: $value');
                 });
               },
@@ -75,7 +74,14 @@ class _RadioExampleState extends State<RadioExample> {
         );
       }
       radioGroupList.add(Divider());
-      radioGroupList.add(Column(children: radioList));
+      // https://api.flutter.dev/flutter/widgets/StatefulBuilder-class.html
+      radioGroupList.add(
+        StatefulBuilder(
+          builder: (BuildContext context, StateSetter setState) {
+            return Column(children: radioListTileList);
+          },
+        ),
+      );
     }
 
     return radioGroupList;
