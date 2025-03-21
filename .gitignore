@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/google_radio_sample/android/app/src/debug
+/google_radio_sample/android
+/google_radio_sample/ios
+/google_radio_sample/linux
+/google_radio_sample/macos
+/google_radio_sample/web
+/google_radio_sample/windows
