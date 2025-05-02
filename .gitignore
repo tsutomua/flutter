@@ -9,3 +9,10 @@
 /google_radio_sample/macos
 /google_radio_sample/web
 /google_radio_sample/windows
+/flutter_web_timezone_test/android
+/flutter_web_timezone_test/ios
+/flutter_web_timezone_test/linux
+/flutter_web_timezone_test/macos
+/flutter_web_timezone_test/windows
+/flutter_web_timezone_test/web
+/flutter_web_timezone_test/.vs
