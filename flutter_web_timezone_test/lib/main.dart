@@ -78,10 +78,10 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> _setup() async {
-     // Does not work in web.
+    // Does not work in web.
     await tz.initializeTimeZone();
 
-    // Does not work in web.
-    // await tz.initializeTimeZone('packages/timezone/data/latest_all.tzf');
+    // Workaround not work either
+    // await tz.initializeTimeZone('assets/packages/timezone/data/latest_10y.tzf');
   }
 }
