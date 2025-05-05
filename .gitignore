@@ -16,3 +16,6 @@
 /flutter_web_timezone_test/windows
 /flutter_web_timezone_test/web
 /flutter_web_timezone_test/.vs
+/flutter_web_timezone_test/FlutterWebTest/.vs
+/flutter_web_timezone_test/FlutterWebTest/FlutterWebTest/bin
+/flutter_web_timezone_test/FlutterWebTest/FlutterWebTest/obj
