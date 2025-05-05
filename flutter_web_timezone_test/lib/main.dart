@@ -79,9 +79,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> _setup() async {
     // Does not work in web.
-    await tz.initializeTimeZone();
+    // await tz.initializeTimeZone();
 
-    // Workaround not work either
+    // Workaround 1: Works if Azure static web hosting is used.
     // await tz.initializeTimeZone('assets/packages/timezone/data/latest_10y.tzf');
+
+    // Workaround 2: Works if the timezone database is copied as 'images/latest_10y.jpg' under the App service's wwwroot folder as a jpg file.
+    await tz.initializeTimeZone('images/latest_10y.jpg');
   }
 }
