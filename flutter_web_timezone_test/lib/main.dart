@@ -84,7 +84,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // Workaround 1: Works if Azure static web hosting is used.
     // await tz.initializeTimeZone('assets/packages/timezone/data/latest_10y.tzf');
 
-    // Workaround 2: Works if the timezone database is copied as 'images/latest_10y.jpg' under the App service's wwwroot folder as a jpg file.
-    await tz.initializeTimeZone('images/latest_10y.jpg');
+    // Workaround 2: Works if the Flutter app is deployed under wwwroot/app and
+    // the timezone database is copied as 'images/latest_10y.jpg' under the App service's wwwroot folder as a jpg file.
+    await tz.initializeTimeZone('../images/latest_10y.jpg');
   }
 }

@@ -52181,7 +52181,7 @@ return new A.rw(new A.oj(p,q,new A.Fv(r,r,1/0,56),r),new A.m0(s.oz(),new A.ZP(s)
 oz(){var s=0,r=A.R(t.H)
 var $async$oz=A.N(function(a,b){if(a===1)return A.O(b,r)
 while(true)switch(s){case 0:s=2
-return A.V(A.a1I("images/latest_10y.jpg"),$async$oz)
+return A.V(A.a1I("../images/latest_10y.jpg"),$async$oz)
 case 2:return A.P(null,r)}})
 return A.Q($async$oz,r)}}
 A.ZO.prototype={
